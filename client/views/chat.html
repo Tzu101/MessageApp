@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MessageApp</title>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="../scripts/chat.js" type="module"></script>
+
+    <style>
+
+        /* Display */
+        #chat {
+            height: 30em;
+            width: 40em;
+            border-style: solid;
+            padding: 0.2em;
+            padding-top: 0;
+        }
+
+        #chat p {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        /* Functionality */
+        #chat {
+            overflow: auto;
+            overflow-y: scroll;
+            word-wrap: break-word;
+        }
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        #chat::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        #chat {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        #message_input {
+            width: 44em;
+            margin-top: 0.5em;
+        }
+
+        #mode_toggle {
+            margin-left: 22em;
+            margin-bottom: 0.5em;
+        }
+
+        div.inline { float:left; }
+        .clearBoth { clear:both; }
+        
+        </style>
+</head>
+<body>
+
+    <div id="room_toggle" class="inline">
+        <button>General</button>
+        <button>Memes</button>
+        <button>Cats</button>
+        <button>Bugs</button>
+    </div>
+    <div id="mode_toggle" class="inline">
+        <button onclick="toggleMode()">Mode: History</button>
+    </div>
+    <br class="clearBoth" />
+
+    <div id="chat"></div>
+
+    <label for="message_input"></label>
+    <input id="message_input" type="text">
+
+    <button onclick="sendMessage()">Send</button>
+    
+</body>
+</html>
